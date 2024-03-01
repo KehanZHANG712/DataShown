@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neusoft.mybatisplus_test.npmstest.mapper.OpportunityApproveMapper">
+    <select id="selectOpportunityApprove" resultType="com.neusoft.mybatisplus_test.npmstest.entity.OpportunityApprove">
+        select count(*)
+        from  opportunity_approve
+        where
+        <if test="oppo_ID !=null">
+            oppo_id=#{oppoId}
+        </if>
+        <if test="approve_ID !=null">
+            or approve_ID =#{approveId}
+        </if>
+
+    </select>
+</mapper>

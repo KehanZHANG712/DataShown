@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neusoft.mybatisplus_test.npmstest.mapper.CustomerMapper">
+
+    <select id="selectCustomer"   resultType="com.neusoft.mybatisplus_test.npmstest.entity.Customer">
+        select   customer_ID,staff_ID,customer_name,tax_indentification_number,enterprise_nature,country,account_group,province_city_district,detail_address,postcode,product_type,core_software_brand,annual_sale_revenue,website,tax_classification,information_status_effect,customer_status
+        from customer
+        where
+        <if test="customerId != null">
+            customer_ID=#{customerId}
+        </if>
+        <if test="customerName != null">
+            and customer_name=#{customerName}
+        </if>
+
+        <if test="staffId != null">
+            and staff_ID=#{staffId}
+        </if>
+
+        <if test="enterpriseNature != null">
+            and enterprise_nature=#{enterpriseNature}
+        </if>
+    </select>
+
+
+    <select id="selectCustomerAll"   resultType="com.neusoft.mybatisplus_test.npmstest.entity.Customer">
+        select customer_ID,staff_ID,customer_name,tax_indentification_number,enterprise_nature,country,account_group,province_city_district,detail_address,postcode,product_type,core_software_brand,annual_sale_revenue,website,tax_classification,information_status_effect,customer_status
+        from customer
+        where
+        <if test="customerId != null">
+            customer_id=#{customerId}
+        </if>
+        <if test="customerName != null">
+            and customer_name=#{customerName}
+        </if>
+
+        <if test="staffId != null">
+            and staff_ID=#{staffId}
+        </if>
+    </select>
+
+</mapper>

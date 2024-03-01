@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neusoft.mybatisplus_test.npmstest.mapper.StaffMapper">
+
+    <select id="selectStaff"   resultType="String">
+        select   staff_ID
+        from     staff
+        where
+        <if test="staffDepartment != null">
+            staff_department=#{staffDepartment}
+        </if>
+        <if test="staffName != null">
+            and staff_name=#{staffName}
+        </if>
+
+
+    </select>
+
+    <select id="selectStaffOther"  resultType="com.neusoft.mybatisplus_test.npmstest.entity.Staff">
+        select   staff_department,staff_name,staff_ID
+        from     staff
+        where
+        <if test="staffId != null">
+            staff_ID=#{staffId}
+        </if>
+
+
+
+    </select>
+
+
+</mapper>

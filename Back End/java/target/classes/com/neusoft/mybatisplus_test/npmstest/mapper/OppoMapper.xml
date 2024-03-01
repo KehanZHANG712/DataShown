@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neusoft.mybatisplus_test.npmstest.mapper.OppoMapper">
+
+    <select id="selectOppo" resultType="com.neusoft.mybatisplus_test.npmstest.entity.Oppo">
+        select   oppo_ID, customer_ID,staff_ID,oppo_name, oppo_from, oppo_stage, oppo_time, oppo_ascription, oppo_background,oppo_status,oppo_amount,oppo_product
+        from oppo
+        where
+        <if test="oppoId != null">
+            oppo_ID = #{oppoId}
+        </if>
+        <if test="staffId != null">
+            and staff_ID = #{staffId}
+        </if>
+        <if test="oppoName != null">
+            and oppo_name = #{oppoName}
+        </if>
+        <if test="oppoTime != null">
+            and oppo_time = #{oppoTime}
+        </if>
+        <if test="oppoAscription != null">
+            and oppo_ascription = #{oppoAscription}
+        </if>
+        <if test="oppoStage != null">
+            and oppo_stage = #{oppoStage}
+        </if>
+        <if test="oppoStatus != null">
+            and oppo_status = #{oppoStatus}
+        </if>
+
+        <if test="oppoProduct != null">
+            and oppo_product = #{oppoProduct}
+        </if>
+        <if test="oppoFrom != null">
+            and oppo_from = #{oppoFrom}
+        </if>
+    </select>
+    <select id="selectOppoAll" resultType="com.neusoft.mybatisplus_test.npmstest.entity.Oppo">
+        select oppo_ID, customer_ID, staff_ID, oppo_name, oppo_from, oppo_stage, oppo_time, oppo_ascription, oppo_background, oppo_status
+        from oppo
+        where
+        <if test="oppoId != null">
+            oppo_ID = #{oppoId}
+        </if>
+        <if test="oppoName != null">
+            and oppo_name = #{oppoName}
+        </if>
+        <if test="staffId != null">
+            and staff_ID = #{staffId}
+        </if>
+    </select>
+</mapper>
